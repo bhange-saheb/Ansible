@@ -436,7 +436,7 @@ The repository includes Terraform configuration for:
 
 ---
 
-# 🚀 Getting Started
+# Getting Started
 
 ## Prerequisites
 
@@ -463,7 +463,7 @@ terraform version
 
 ---
 
-# 📥 Clone the Repository
+# Clone the Repository
 
 ```bash
 git clone https://github.com/bhange-saheb/Ansible.git
@@ -599,7 +599,7 @@ The structure above reflects the files present in the referenced commit.
 
 ---
 
-# 🎯 Learning Objectives
+# Learning Objectives
 
 This project is designed to build practical knowledge of:
 
@@ -645,14 +645,6 @@ Before using this project in production:
 
 ---
 
-# 🧪 Learning & Practice
-
-This repository is intended as a **hands-on DevOps learning and practice project**.
-
-The examples demonstrate how individual Ansible features can be combined to automate real infrastructure. Ansible's own documentation similarly recommends organizing automation around playbooks, roles, inventories, variables, and related components according to the needs of the infrastructure.
-
----
-
 # 🌟 Future Improvements
 
 Planned improvements can include:
@@ -671,14 +663,6 @@ Planned improvements can include:
 * [ ] Add automated documentation
 
 ---
-
-# 👨‍💻 Author
-
-## Ankit Bhange
-
-**DevOps Engineer | Linux | Ansible | Terraform | AWS | Docker | Kubernetes**
-
-📍 Nagpur, Maharashtra, India
 
 GitHub:
 https://github.com/bhange-saheb
