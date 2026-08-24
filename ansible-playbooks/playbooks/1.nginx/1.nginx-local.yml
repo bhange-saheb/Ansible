@@ -6,7 +6,7 @@
   become_user: root
   #serial: 1
   vars:
-    AWS_ACCOUNT: "211125710812"
+    AWS_ACCOUNT: "680464296394"
   tasks:
     - name: Print Variable
       debug:
@@ -19,7 +19,7 @@
 
     - name: Perform apt update & Install basic packages
       shell: apt update && apt install -y unzip jq net-tools stress
-      when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "24.04")
+      when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "26.04")
       timeout: 30
       tags:
         - tools
@@ -29,14 +29,14 @@
         name: nginx
         state: latest
         update_cache: yes
-      when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "24.04")
+      when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "26.04")
       timeout: 30
 
     - name: Start Nginx Service
       service:
         name: nginx
         state: started
-      when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "24.04")
+      when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "26.04")
   tags:
     - nginx
 
@@ -47,29 +47,29 @@
   tasks:
     - name: Copy html file
       copy:
-        src: /tmp/nginxfiles/index.html
+        src: /tmp/containerized-game/snake-game/index.html
         dest: /var/www/html/index.nginx-debian.html
         owner: root
         group: root
         mode: "0644"
-      when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "24.04")
+      when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "26.04")
 
     - name: Copy scorekeeper.js file
       copy:
-        src: /tmp/nginxfiles/scorekeeper.js
-        dest: /var/www/html/scorekeeper.js
+        src: /tmp/containerized-game/snake-game/script.js
+        dest: /var/www/html/script.js
         owner: root
         group: root
         mode: "0644"
-      when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "24.04")
+      when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "26.04")
 
     - name: Copy style.css file
       copy:
-        src: /tmp/nginxfiles/style.css
+        src: /tmp/containerized-game/snake-game/style.css
         dest: /var/www/html/style.css
         owner: root
         group: root
         mode: "0644"
-      when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "24.04")
+      when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "26.04")
   tags:
     - files

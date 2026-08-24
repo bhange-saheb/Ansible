@@ -12,7 +12,7 @@
         - update
 
     - name: Clone Git Repo
-      shell: cd /tmp && git clone https://github.com/saikiranpi/ansible_testing.git ansible_testing_page
+      shell: cd /tmp && git clone https://github.com/bhange-saheb/containerized-game.git ansible_testing_page && cd ansible_testing_page/snake-game
       tags:
         - clone
 
@@ -25,7 +25,7 @@
 
     - name: Copy the files to index destination folder.
       copy: > # > symbol Will consider as a single line.
-        src=/tmp/ansible_testing_page/index.html
+        src=/tmp/ansible_testing_page/snake-game/index.html
         dest=/var/www/html/index.nginx-debian.html
         remote_src=yes
         owner=root
@@ -37,7 +37,7 @@
 
     - name: Copy the style files to  destination folder.
       copy: >
-        src=/tmp/ansible_testing_page/style.css
+        src=/tmp/ansible_testing_page/snake-game/style.css
         dest=/var/www/html/style.css
         remote_src=yes
         owner=root
@@ -48,8 +48,8 @@
 
     - name: Copy the javascript files to  destination folder.
       copy: >
-        src=/tmp/ansible_testing_page/scorekeeper.js
-        dest=/var/www/html/scorekeeper.js
+        src=/tmp/ansible_testing_page/snake-game/script.js
+        dest=/var/www/html/script.js
         remote_src=yes
         owner=root
         group=root
