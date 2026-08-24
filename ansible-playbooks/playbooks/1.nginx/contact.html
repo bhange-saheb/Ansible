@@ -3,14 +3,158 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Contact - Ankit Bhange</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                radial-gradient(circle at top left, #4f46e5, transparent 35%),
+                radial-gradient(circle at bottom right, #06b6d4, transparent 30%),
+                #0f172a;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 520px;
+            padding: 45px 35px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 24px;
+            backdrop-filter: blur(18px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.35);
+        }
+
+        h1 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            color: #bae6fd;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .location span {
+            margin-right: 7px;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 14px;
+            margin-top: 25px;
+        }
+
+        .contact-item {
+            padding: 17px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.08);
+            transition: 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .contact-item strong {
+            display: block;
+            color: #67e8f9;
+            font-size: 14px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item p {
+            color: #e2e8f0;
+            font-size: 17px;
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        @media (max-width: 500px) {
+            .card {
+                padding: 35px 22px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Contact Us</h1>
-    <h1>Please reach me on saikiran.pinapathruni18@gmail.com</h1>
+
+    <div class="card">
+
+        <div class="avatar">AB</div>
+
+        <h1>Ankit Bhange</h1>
+
+        <div class="location">
+            <span>📍</span> Nagpur, Maharashtra
+        </div>
+
+        <div class="contact-info">
+
+            <div class="contact-item">
+                <strong>Name</strong>
+                <p>Ankit Bhange</p>
+            </div>
+
+            <div class="contact-item">
+                <strong>Location</strong>
+                <p>Nagpur, Maharashtra, India</p>
+            </div>
+
+            <div class="contact-item">
+                <strong>Contact</strong>
+                <p>Available for professional communication</p>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            © 2026 Ankit Bhange • Contact Page
+        </div>
+
+    </div>
+
 </body>
 
 </html>

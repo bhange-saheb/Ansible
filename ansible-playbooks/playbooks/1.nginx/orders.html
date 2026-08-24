@@ -3,13 +3,488 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orders</title>
+    <title>Eat With Ankit | Nagpur</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+            padding: 30px 20px;
+            background:
+                radial-gradient(circle at top left, #4f46e5, transparent 35%),
+                radial-gradient(circle at bottom right, #06b6d4, transparent 30%),
+                #0f172a;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 25px 0 35px;
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 42px;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.35);
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            color: #bae6fd;
+            font-size: 18px;
+        }
+
+        .location {
+            margin-top: 8px;
+            color: #94a3b8;
+        }
+
+        /* Featured dish */
+
+        .featured {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            margin-bottom: 35px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .food-image {
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            background:
+                radial-gradient(circle at center,
+                    rgba(6, 182, 212, 0.35),
+                    transparent 55%),
+                rgba(255, 255, 255, 0.05);
+        }
+
+        .featured-info {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .special {
+            width: fit-content;
+            padding: 7px 14px;
+            margin-bottom: 15px;
+            border-radius: 20px;
+            color: #cffafe;
+            background: rgba(6, 182, 212, 0.18);
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .featured h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .description {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            color: #67e8f9;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Menu */
+
+        .section-title {
+            text-align: center;
+            margin: 35px 0 22px;
+            font-size: 28px;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .menu-item {
+            padding: 25px;
+            text-align: center;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            transition: 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.13);
+            border-color: rgba(34, 211, 238, 0.35);
+        }
+
+        .food-icon {
+            font-size: 48px;
+            margin-bottom: 14px;
+        }
+
+        .menu-item h3 {
+            margin-bottom: 8px;
+        }
+
+        .menu-item p {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .menu-price {
+            color: #67e8f9;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Order form */
+
+        .order-box {
+            max-width: 650px;
+            margin: 40px auto 0;
+            padding: 35px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #cbd5e1;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            outline: none;
+            color: white;
+            background: rgba(15, 23, 42, 0.65);
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #22d3ee;
+            box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
+        }
+
+        select option {
+            color: #111827;
+            background: white;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            color: white;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        @media (max-width: 750px) {
+            .featured {
+                grid-template-columns: 1fr;
+            }
+
+            .menu {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .featured-info {
+                padding: 28px;
+            }
+
+            .food-image {
+                min-height: 220px;
+                font-size: 90px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Order Here</h1>
+
+    <div class="container">
+
+        <header>
+            <div class="logo">🍽️</div>
+
+            <h1>Eat With Ankit</h1>
+
+            <p class="tagline">
+                Good food. Great company. Amazing memories.
+            </p>
+
+            <p class="location">
+                📍 Nagpur, Maharashtra
+            </p>
+        </header>
+
+
+        <!-- Featured Food -->
+
+        <section class="featured">
+
+            <div class="food-image">
+                🍗
+            </div>
+
+            <div class="featured-info">
+
+                <span class="special">
+                    ✨ Ankit's Special
+                </span>
+
+                <h2>Nagpuri Saoji Chicken</h2>
+
+                <p class="description">
+                    A fiery and flavorful Nagpuri classic made with aromatic
+                    spices and rich Saoji masala. Perfect for anyone who loves
+                    bold Maharashtrian flavors.
+                </p>
+
+                <div class="price">
+                    ₹299
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Menu -->
+
+        <h2 class="section-title">
+            Today's Menu 🍴
+        </h2>
+
+        <section class="menu">
+
+            <div class="menu-item">
+                <div class="food-icon">🍗</div>
+
+                <h3>Saoji Chicken</h3>
+
+                <p>
+                    Spicy Nagpuri-style chicken curry.
+                </p>
+
+                <div class="menu-price">
+                    ₹299
+                </div>
+            </div>
+
+
+            <div class="menu-item">
+                <div class="food-icon">🍛</div>
+
+                <h3>Masala Biryani</h3>
+
+                <p>
+                    Fragrant rice with delicious aromatic spices.
+                </p>
+
+                <div class="menu-price">
+                    ₹249
+                </div>
+            </div>
+
+
+            <div class="menu-item">
+                <div class="food-icon">🥘</div>
+
+                <h3>Paneer Masala</h3>
+
+                <p>
+                    Delicious paneer cooked with Indian spices.
+                </p>
+
+                <div class="menu-price">
+                    ₹219
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Order -->
+
+        <section class="order-box">
+
+            <h2 class="section-title" style="margin-top: 0;">
+                🍴 Join Ankit for a Meal
+            </h2>
+
+            <form onsubmit="placeOrder(event)">
+
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="dish">Choose Your Dish</label>
+
+                    <select id="dish" required>
+                        <option value="">Select a dish</option>
+                        <option value="Saoji Chicken">
+                            Saoji Chicken - ₹299
+                        </option>
+
+                        <option value="Masala Biryani">
+                            Masala Biryani - ₹249
+                        </option>
+
+                        <option value="Paneer Masala">
+                            Paneer Masala - ₹219
+                        </option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="quantity">
+                        Number of Plates
+                    </label>
+
+                    <input type="number" id="quantity" min="1" max="20" value="1" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="message">
+                        Special Request
+                    </label>
+
+                    <textarea id="message" placeholder="Any special request?"></textarea>
+                </div>
+
+
+                <button type="submit">
+                    🍽️ Order & Eat With Ankit
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <footer>
+            © 2026 Ankit Bhange • Nagpur, Maharashtra
+        </footer>
+
+    </div>
+
+
+    <script>
+        function placeOrder(event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("name").value;
+
+            const dish =
+                document.getElementById("dish").value;
+
+            const quantity =
+                document.getElementById("quantity").value;
+
+            alert(
+                "🎉 Order Received!\\n\\n" +
+                "Welcome, " + name + "!\\n" +
+                "Dish: " + dish + "\\n" +
+                "Plates: " + quantity + "\\n\\n" +
+                "See you at Eat With Ankit! 🍽️"
+            );
+        }
+    </script>
+
 </body>
 
 </html>
